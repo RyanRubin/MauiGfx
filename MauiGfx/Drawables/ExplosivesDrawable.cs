@@ -23,8 +23,8 @@ public class ExplosivesDrawable : IDrawable
         {
             canvas.StrokeColor = Colors.Yellow;
             canvas.StrokeSize = 2;
-            canvas.StrokeDashPattern = new float[] { 1, 1 };
-            //canvas.DrawLine(explosiveLine.X1, explosiveLine.Y1, explosiveLine.X2, explosiveLine.Y2);
+            //canvas.StrokeDashPattern = new float[] { 1, 1 };
+            canvas.DrawLine(explosiveLine.X1, explosiveLine.Y1, explosiveLine.X2, explosiveLine.Y2);
         }
 
         // draw the explosives
@@ -43,7 +43,7 @@ public class ExplosivesDrawable : IDrawable
         }
 
         // draw the virtual pointer
-        canvas.StrokeColor = Colors.White;
+        canvas.StrokeColor = Colors.Cyan;
         canvas.StrokeSize = 1;
         canvas.DrawEllipse(mainPageViewModel.Pointer.X, mainPageViewModel.Pointer.Y, 10, 10);
         canvas.DrawEllipse(mainPageViewModel.Pointer.X + 5, mainPageViewModel.Pointer.Y + 5, 10, 10);
