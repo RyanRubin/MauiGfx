@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiGfx.MainPage">
+    <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Label Margin="5" VerticalTextAlignment="Center">Row count</Label>
+            <Entry Margin="5" Text="{Binding RowCount}"></Entry>
+            <Label Margin="5" VerticalTextAlignment="Center">Column count</Label>
+            <Entry Margin="5" Text="{Binding ColCount}"></Entry>
+            <Button Margin="5" Text="Draw explosives" Command="{Binding DrawExplosivesCommand}"></Button>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Margin="5" VerticalTextAlignment="Center">Pointer x</Label>
+            <Slider Value="{Binding Pointer.X}" Minimum="0" Maximum="500" WidthRequest="200"></Slider>
+            <Label Margin="5" VerticalTextAlignment="Center">Pointer y</Label>
+            <Slider Value="{Binding Pointer.Y}" Minimum="0" Maximum="500" WidthRequest="200"></Slider>
+            <Button Margin="5" Text="Select" Command="{Binding SelectExplosiveCommand}"></Button>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Margin="5" VerticalTextAlignment="Center">Draw line</Label>
+            <Button Margin="5" Text="Start" Command="{Binding StartDrawLineCommand}"></Button>
+            <Button Margin="5" Text="End" Command="{Binding EndDrawLineCommand}"></Button>
+            <Button Margin="5" Text="Cancel" Command="{Binding CancelDrawLineCommand}"></Button>
+            <Button Margin="5" Text="Clear" Command="{Binding ClearDrawLineCommand}"></Button>
+        </HorizontalStackLayout>
+        <GraphicsView x:Name="graphicsView" Margin="5" HeightRequest="500" WidthRequest="500" />
+    </VerticalStackLayout>
+</ContentPage>
