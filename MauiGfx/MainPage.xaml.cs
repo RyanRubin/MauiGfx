@@ -20,6 +20,13 @@ public partial class MainPage : ContentPage
             graphicsView.Invalidate();
         };
         graphicsView.Drawable = drawable;
+        graphicsView.StartInteraction += GraphicsView_StartInteraction;
+    }
+
+    private void GraphicsView_StartInteraction(object sender, TouchEventArgs e)
+    {
+        mainPageViewModel.Pointer.X = (int)e.Touches[0].X;
+        mainPageViewModel.Pointer.Y = (int)e.Touches[0].Y;
     }
 }
 
