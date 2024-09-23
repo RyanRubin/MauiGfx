@@ -1,4 +1,4 @@
-﻿using MauiGfx.ViewModels;
+using MauiGfx.ViewModels;
 
 namespace MauiGfx;
 
@@ -21,6 +21,8 @@ public partial class MainPage : ContentPage
         };
         graphicsView.Drawable = drawable;
         graphicsView.StartInteraction += GraphicsView_StartInteraction;
+        graphicsView.DragInteraction += GraphicsView_DragInteraction;
+        graphicsView.EndInteraction += GraphicsView_EndInteraction;
     }
 
     private void GraphicsView_StartInteraction(object sender, TouchEventArgs e)
@@ -28,5 +30,15 @@ public partial class MainPage : ContentPage
         mainPageViewModel.Pointer.X = (int)e.Touches[0].X;
         mainPageViewModel.Pointer.Y = (int)e.Touches[0].Y;
     }
-}
 
+    private void GraphicsView_DragInteraction(object sender, TouchEventArgs e)
+    {
+        mainPageViewModel.Pointer.X = (int)e.Touches[0].X;
+        mainPageViewModel.Pointer.Y = (int)e.Touches[0].Y;
+    }
+
+    private void GraphicsView_EndInteraction(object sender, TouchEventArgs e)
+    {
+        mainPageViewModel.SelectExplosiveCommand.Execute(null);
+    }
+}
