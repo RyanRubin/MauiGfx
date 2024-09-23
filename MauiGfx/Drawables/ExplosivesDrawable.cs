@@ -1,4 +1,4 @@
-﻿using MauiGfx.ViewModels;
+using MauiGfx.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +18,10 @@ public class ExplosivesDrawable : IDrawable
 
     public void Draw(ICanvas canvas, RectF dirtyRect)
     {
+        // clear the canvas
+        canvas.FillColor = Colors.White;
+        canvas.FillRectangle(dirtyRect);
+
         // draw the explosive lines
         foreach (var explosiveLine in mainPageViewModel.ExplosiveLines)
         {
